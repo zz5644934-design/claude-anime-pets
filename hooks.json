@@ -1,0 +1,81 @@
+{
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python -c \"import tempfile,os;open(os.path.join(tempfile.gettempdir(),'clawd_state.txt'),'w').write('think')\""
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit|NotebookEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python -c \"import tempfile,os;open(os.path.join(tempfile.gettempdir(),'clawd_state.txt'),'w').write('code')\""
+          }
+        ]
+      },
+      {
+        "matcher": "Bash|PowerShell",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python -c \"import tempfile,os;open(os.path.join(tempfile.gettempdir(),'clawd_state.txt'),'w').write('run')\""
+          }
+        ]
+      },
+      {
+        "matcher": "Read|Grep|Glob",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python -c \"import tempfile,os;open(os.path.join(tempfile.gettempdir(),'clawd_state.txt'),'w').write('search')\""
+          }
+        ]
+      },
+      {
+        "matcher": "WebSearch|WebFetch",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python -c \"import tempfile,os;open(os.path.join(tempfile.gettempdir(),'clawd_state.txt'),'w').write('web')\""
+          }
+        ]
+      },
+      {
+        "matcher": "Agent",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python -c \"import tempfile,os;open(os.path.join(tempfile.gettempdir(),'clawd_state.txt'),'w').write('think')\""
+          }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python -c \"import tempfile,os;open(os.path.join(tempfile.gettempdir(),'clawd_state.txt'),'w').write('surprise')\""
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python -c \"import tempfile,os;open(os.path.join(tempfile.gettempdir(),'clawd_state.txt'),'w').write('happy')\""
+          }
+        ]
+      }
+    ]
+  }
+}
